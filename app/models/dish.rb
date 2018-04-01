@@ -8,6 +8,10 @@ class Dish < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :venues,
+             :through => :bookmarks,
+             :source => :venue
+
   # Validations
 
   validates :dish_name, :uniqueness => true

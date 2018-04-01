@@ -8,6 +8,10 @@ class Venue < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :dishes,
+             :through => :bookmarks,
+             :source => :dish
+
   # Validations
 
   validates :neighborhood_id, :uniqueness => { :scope => [:address, :venue_name] }
